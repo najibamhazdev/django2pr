@@ -1,0 +1,117 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+<!-- Content -->
+    <div class="page-content">
+        <!-- inner page banner -->
+        <div class="dlab-bnr-inr overlay-black-middle" style="background-image:url({{ productCat.image.url }});">
+            <div class="container">
+                <div class="dlab-bnr-inr-entry">
+                    <h1 class="text-white">{{ productCat.title }}</h1>
+                    <h5 class="text-white">{{ productCat.short_descr }}</h5>
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- Breadcrumb row -->
+        <div class="breadcrumb-row">
+            <div class="container">
+                <ul class="list-inline">
+                    <li><a href="/">{% trans 'Home'%}</a></li>
+                    <li><a href="/products/">{% trans 'Products'%}</a></li>
+                    <li>{{ productCat.title }}</li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb row END -->
+        <!-- contact area -->
+        <div class="content-inner section-full bg-white">
+            <!-- Product -->
+            <div class="container">
+				
+                <div class="row">
+					<div class="col-md-3 col-sm-4">
+						
+						<div class="widget bg-white widget_services">
+							<h4 class="widget-title">{% trans 'Categories List'%}</h4>
+							<ul>
+								{% for cat in categories %}
+                                    <li {% if cat.slug in request.path %} class="active" {% endif %} ><a href="/products_categories/{{ cat.slug }}">{{ cat.title }}</a></li>
+                                {% endfor %}
+								
+							</ul>
+						</div>
+					</div>
+                    <div class="col-md-9 col-sm-8">
+						<div class="text-center m-b50">
+							<h2 class="m-t0">{{ productCat.title }} {% trans 'Products'%}</h2>
+							<div class="dlab-separator-outer "><div class="dlab-separator bg-primary style-skew"></div> </div>
+						</div>
+						<div class="row" id="masonry">
+
+                        {% for product in products %}
+
+
+                                <div class="col-md-4 col-sm-4 m-b30 product-item card-container">
+                                    <div class="dlab-box ">
+                                        <div class="dlab-thum-bx  dlab-img-effect "> <img src="{{ product.image.url }}" alt="{{ product.slug }}">
+                                           
+                                        </div>
+                                        <div class="dlab-info p-a20 text-center">
+                                            <h4 class="dlab-title m-t0 text-uppercase"><a href="{{ product.slug }}">{{ product.title }}</a></h4>
+                                            <p>{{ product.short_descr }}</p>
+                                            
+                                        </div>
+                                        <!--<div class="sale">
+                                            <span class="site-button button-sm red">Sale</span>
+                                        </div>-->
+                                    </div>
+                                </div> 
+                            {% endfor %}
+							
+							
+						</div>
+						
+					</div>
+                </div>
+				<!--<div class="row m-t30 product-service">
+					<div class="col-md-4 col-sm-4 m-b30">
+						<div class="icon-bx-wraper bx-style-1 p-a20 left bg-primary text-white">
+							<div class="icon-bx-md  bg-white text-primary m-b20"> <a href="#" class="icon-cell "><i class="fa fa-plane"></i></a> </div>
+							<div class="icon-content">
+								<h3 class="dlab-tilte text-uppercase m-b5">Free Shipping</h3>
+								<p>Lorem ipsum dolor sit elit nonummy dolor is euismod end [...]</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-4 m-b30">
+						<div class="icon-bx-wraper bx-style-1 p-a20 left bg-primary text-white">
+							<div class="icon-bx-md  bg-white text-primary m-b20"> <a href="#" class="icon-cell "><i class="fa fa-briefcase"></i></a> </div>
+							<div class="icon-content">
+								<h3 class="dlab-tilte text-uppercase m-b5">Warehouse Prices</h3>
+								<p>Lorem ipsum dolor sit elit nonummy dolor is euismod end [...]</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-4 m-b30">
+						<div class="icon-bx-wraper bx-style-1 p-a20 left bg-primary text-white">
+							<div class="icon-bx-md  bg-white text-primary m-b20"> <a href="#" class="icon-cell "><i class="fa fa-cogs"></i></a> </div>
+							<div class="icon-content">
+								<h3 class="dlab-tilte text-uppercase m-b5">Secure Shopping</h3>
+								<p>Lorem ipsum dolor sit elit nonummy dolor is euismod end [...]</p>
+							</div>
+						</div>
+					</div>
+				</div>-->
+		   </div>
+            <!-- Product END -->
+        </div>
+        <!-- contact area  END -->
+    </div>
+    <!-- Content END-->
+
+{% endblock content %}
+

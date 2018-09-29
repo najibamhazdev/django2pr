@@ -1,0 +1,170 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-24 16:26+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: web/templates/blog_detail.html:24 web/templates/blog_list.html:20
+#: web/templates/contactus.html:23 web/templates/layout.html:108
+#: web/templates/product_detail.html:22 web/templates/products.html:24
+#: web/templates/products_categories.html:22 web/templates/services.html:24
+msgid "Home"
+msgstr "Casa"
+
+#: web/templates/blog_detail.html:25 web/templates/layout.html:122
+msgid "News & Events"
+msgstr "Noticias y Eventos"
+
+#: web/templates/blog_detail.html:40 web/templates/blog_list.html:40
+#: web/templates/index.html:288
+msgid "By"
+msgstr "Por"
+
+#: web/templates/blog_detail.html:46
+msgid "Gallery"
+msgstr "Galería"
+
+#: web/templates/blog_list.html:47
+msgid "READ MORE"
+msgstr "LEE MAS"
+
+#: web/templates/contactus.html:24
+msgid "Contact us"
+msgstr "Contáctenos"
+
+#: web/templates/contactus.html:36
+msgid "Quick Contact"
+msgstr "Contacto rápido"
+
+#: web/templates/contactus.html:37
+msgid "If you have any questions simply use the following contact details."
+msgstr "Si tiene alguna pregunta, simplemente use los siguientes detalles de contacto."
+
+#: web/templates/contactus.html:42
+msgid "Address"
+msgstr "Dirección"
+
+#: web/templates/contactus.html:49
+msgid "Email"
+msgstr "Email"
+
+#: web/templates/contactus.html:56
+msgid "PHONE"
+msgstr "TELÉFONO"
+
+#: web/templates/index.html:121
+msgid "Read More"
+msgstr "read more es"
+
+#: web/templates/index.html:145
+msgid "Meet & Ask MOLLER Germany"
+msgstr "conocer y preguntar MOLLER Alemania"
+
+#: web/templates/index.html:146
+msgid ""
+"One of the leading suppliers of passenger spare parts, lubricants and oil "
+"equipment."
+msgstr "Uno de los principales proveedores de piezas de repuesto para pasajeros, lubricantes y equipos de aceite."
+
+#: web/templates/index.html:150 web/templates/layout.html:123
+#: web/templates/layout.html:238 web/templates/layout.html:259
+msgid "Contact Us"
+msgstr "Contáctenos"
+
+#: web/templates/index.html:150
+msgid "View more"
+msgstr "Ver más"
+
+#: web/templates/index.html:212 web/templates/products.html:47
+msgid "Show All"
+msgstr "Mostrar todo"
+
+#: web/templates/index.html:268
+msgid "Latest blog posts"
+msgstr "Últimas publicaciones"
+
+#: web/templates/layout.html:101
+msgid "Type to search"
+msgstr "Escribe para buscar"
+
+#: web/templates/layout.html:109 web/templates/layout.html:259
+msgid "About Us"
+msgstr "Sobre nosotros"
+
+#: web/templates/layout.html:110 web/templates/products.html:25
+msgid "Our Products"
+msgstr "Nuestros productos"
+
+#: web/templates/layout.html:120 web/templates/layout.html:224
+#: web/templates/services.html:25
+msgid "Our Services"
+msgstr "Nuestros servicios"
+
+#: web/templates/layout.html:156 web/templates/layout.html:168
+msgid "Subscribe"
+msgstr "Suscribir"
+
+#: web/templates/layout.html:157
+msgid "Our Newsletter"
+msgstr "Nuestro boletín"
+
+#: web/templates/layout.html:163
+msgid "Email address"
+msgstr "Dirección de correo electrónico"
+
+#: web/templates/layout.html:194
+msgid "Recent Posts"
+msgstr "Mensajes recientes"
+
+#: web/templates/layout.html:243
+msgid "address"
+msgstr "dirección"
+
+#: web/templates/layout.html:244
+msgid "phone"
+msgstr "teléfono"
+
+#: web/templates/layout.html:245
+msgid "FAX"
+msgstr "FAX"
+
+#: web/templates/layout.html:246
+msgid "email"
+msgstr "correo electrónico"
+
+#: web/templates/layout.html:257
+msgid "MOLLER Germany © Copyright 2018"
+msgstr "MOLLER Alemania © Copyright 2018"
+
+#: web/templates/layout.html:258
+msgid "Developed By"
+msgstr "Desarrollado por"
+
+#: web/templates/product_detail.html:23
+#: web/templates/products_categories.html:23
+#: web/templates/products_categories.html:50
+msgid "Products"
+msgstr "Productos"
+
+#: web/templates/product_detail.html:38
+msgid "You have to see this"
+msgstr "Tienes que ver esto"
+
+#: web/templates/product_detail.html:67
+#: web/templates/products_categories.html:39
+msgid "Categories List"
+msgstr "Lista de categorías"

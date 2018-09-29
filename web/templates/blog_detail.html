@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+
+{% block content %}
+   
+    
+
+
+    <div class="page-content">
+        <!-- inner page banner -->
+        <div class="dlab-bnr-inr overlay-black-middle" style="background-image:url({{ art.pic_thumb.url }});">
+            <div class="container">
+                <div class="dlab-bnr-inr-entry">
+                    <h1 class="text-white">{{ art.title }}</h1>
+                    <h5 class="text-white">{{ art.short_descr }}</h5>
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- Breadcrumb row -->
+        <div class="breadcrumb-row">
+            <div class="container">
+                <ul class="list-inline">
+                    <li><a href="/">{% trans 'Home'%}</a></li>
+                    <li><a href="/news_and_events/" >{% trans 'News & Events'%}</a></li>
+                    <li>{{ art.title }}</li>
+
+        </div>
+        <!-- Breadcrumb row END -->
+        <div class="content-area">
+            <div class="container">
+                <!-- blog start -->
+                <div class="blog-post blog-single">
+                    <div class="dlab-post-title ">
+                        <h3 class="post-title"><a href="#">{{ art.title }}</a></h3>
+                    </div>
+                    <div class="dlab-post-meta m-b20">
+                        <ul>
+                            <li class="post-date"> <i class="fa fa-calendar"></i><strong>{{ art.dat.date }}</strong> </li>
+                            <li class="post-author"><i class="fa fa-user"></i>{% trans 'By'%} <a href="#">{{ art.author }}</a> </li>
+                        </ul>
+                    </div>
+                    <!--<div class="dlab-post-media dlab-img-effect zoom-slow"> <a href="#"><img src="{{ art.pic_thumb.url }}" alt="{{ art.slug }}"></a> </div>-->
+                    <div class="dlab-post-text">
+                        <p>{{ art.description }}</p>
+                        <h3>{% trans 'Gallery'%}:</h3>
+                        <div class="dlab-post-tags clear">
+                                
+                            </div>
+                        {% for img in art_img_list %}
+
+                            <div class="col-md-4 col-sm-6 m-b30 mfp-gallery">
+							<div class="dlab-box ">
+								<div class="dlab-media"> <a  href="{{ img.picture.url }}" class="mfp-link"  title="{{ img.gallery_title }}" category=" {{ art.title }} "><img src="{{ img.picture.url }}" alt="{{ img.gallery_title }}"></a> </div>
+								<div class="dlab-info p-a20 text-center bg-gray">
+									<div class="p-lr20">
+										<h4 class="m-a0 bg-primary service-head"><a  class="text-white">{{ img.gallery_title }}</a></h4>
+									</div>	
+									<p class="m-b0">{{ img.short_descr }}</p>
+								</div>
+							</div>
+						</div>
+
+                          
+                           
+                        {% endfor %}    
+                        
+                    </div>
+                    
+                </div>
+                
+                <!-- blog END -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

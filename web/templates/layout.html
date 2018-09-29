@@ -1,0 +1,352 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+<!--[if IE 7 ]>  <html lang="en-gb" class="isie ie7 oldie no-js"> <![endif]-->
+<!--[if IE 8 ]>  <html lang="en-gb" class="isie ie8 oldie no-js"> <![endif]-->
+<!--[if IE 9 ]>  <html lang="en-gb" class="isie ie9 no-js"> <![endif]-->
+<!-- Meta -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="" />
+<meta name="author" content="" />
+<meta name="robots" content="" />
+<meta name="description" content="" />
+<meta name="format-detection" content="telephone=no">
+<!-- Favicons Icon -->
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+<!-- Page Title Here -->
+<title>Möller Deutschland | page name </title>
+<!-- Mobile Specific -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+	<![endif]-->
+<!-- Stylesheets -->
+<link rel="stylesheet" type="text/css"  href="{% static 'web/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/fontawesome/css/font-awesome.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/bootstrap-select.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/magnific-popup.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/style.css' %}">
+<link class="skin"  rel="stylesheet" type="text/css" href="{% static 'web/css/skin/skin-1.css' %}">
+<link  rel="stylesheet" type="text/css" href="{% static 'web/css/templete.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/switcher.css' %}">
+<!-- Revolution Slider Css -->
+<link rel="stylesheet" type="text/css" href="{% static 'web/plugins/revolution/css/settings.css' %}">
+<!-- Revolution Navigation Style -->
+<link rel="stylesheet" type="text/css" href="{% static 'web/plugins/revolution/css/navigation.css' %}">
+<!-- Google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900|Nunito:200,300,400,600,700,800,900|Open+Sans:300,400,600,700,800|Oswald:200,300,400,500,600,700|PT+Serif:400,700|Quicksand:300,400,500,700|Roboto+Slab:100,300,400|Roboto:100,300,400,500,700,900" rel="stylesheet"> 
+</head>
+<body id="bg" class="footer-fixed"><div id="loading-area"></div>
+<div class="page-wraper">
+    <!-- header -->
+    <header class="site-header header-style-1">
+        <!-- top bar -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="dlab-topbar-left"> 
+                       
+                    </div>
+                    <div class="dlab-topbar-right">
+                        <ul class="social-bx list-inline pull-right">
+                            {% if webSettings.facebook %}<li><a class="fa fa-facebook" href="{{ webSettings.facebook }}" target="_blank"></a></li>{% endif %}
+                            {% if webSettings.twitter %}<li><a class="fa fa-twitter" href="{{ webSettings.twitter }}" target="_blank"></a></li>{% endif %}
+                            {% if webSettings.instagram %}<li><a class="fa fa-instagram" href="{{ webSettings.instagram }}" target="_blank"></a></li>{% endif %}
+                            {% if webSettings.linkedin %}<li><a class="fa fa-linkedin" href="{{ webSettings.linkedin }}" target="_blank"></a></li>{% endif %}
+                        </ul>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+
+        <!-- top bar END-->
+        <!-- main header -->
+        <div class="sticky-header header-curve main-bar-wraper">
+            <div class="main-bar bg-primary clearfix ">
+                <div class="container clearfix">
+                    <!-- website logo -->
+                    <div class="logo-header mostion"><a href="/"><img src="{% static 'web/images/logo.jpg' %}"  alt=""></a></div>
+                    <!-- nav toggle button -->
+                    <button data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggle collapsed"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <!-- extra nav 
+                    <div class="extra-nav">
+                        <div class="extra-cell">
+                            <button id="quik-search-btn" type="button" class="site-button"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>-->
+                    <!-- extra nav
+                    <div class="extra-nav">
+                        <div class="extra-cell">
+                            <button id="quik-lang-btn" type="button" class="site-button"><i class="fa fa-globe"></i> {{ LANGUAGE_CODE }} <i class="fa fa-chevron-down"></i> </button>
+                        </div>
+                    </div> -->
+
+                    
+                    <!-- Quik search -->
+                    <div class="dlab-quik-search bg-primary">
+                        <form action="#">
+                            <input name="search" value="" type="text" class="form-control" placeholder="{% trans 'Type to search'%}">
+                            <span id="quik-search-remove"><i class="fa fa-remove"></i></span>
+                        </form>
+                    </div>
+                    
+                    
+                    <!-- main nav -->
+                    <div class="header-nav navbar-collapse collapse">
+                        <ul class=" nav navbar-nav">
+                            <li {% if request.path == '/' %} class="active"{% endif %}  > <a href="/">{% trans 'Home' %}</a></li>
+                            <li {% if request.path == '/about/' %} class="active"{% endif %} > <a href="/about/">{% trans 'About Us' %}</a></li>
+                            <li class="has-mega-menu   {% if '/products' in request.path %} active{% endif %}  "> <a href="/products/">{% trans 'Our Products' %} <i class="fa fa-chevron-down"></i></a>
+                                <ul class="mega-menu">
+                                    {% for cat in categories %}
+                                    <li> <a href="/products_categories/{{ cat.slug }}"><div class="cat_menu_title">{{ cat.title }}</div><img src="{{ cat.image.url }}" class="menu_img" ></a> </li>
+                                    {% endfor %}
+                                    
+                                    
+                                </ul>
+                            </li> 
+                                   
+                            <li {% if request.path == '/services/' %} class="active"{% endif %} > <a href="/services/">{% trans 'Our Services' %} </a></li>
+                            
+                            <li {% if '/news_and_events/' in request.path %} class="active"{% endif %}> <a href="/news_and_events/">{% trans 'News & Events' %}</a></li>
+                            <li {% if '/contactus/' in request.path %} class="active"{% endif %}> <a href="/contactus/">{% trans 'Contact Us' %}</a></li>
+                            
+
+                            <li><a href=# ><i class="fa fa-globe"></i> {{ LANGUAGE_CODE }} <i class="fa fa-chevron-down"></i></a>
+                                <ul class="sub-menu">
+                                    {% for lang in languages %}
+                                        <li>
+                                            <form action="{% url 'set_language' %}" name="lang{{ lang.code }}" method="post">{% csrf_token %}
+                                                <input type="hidden" name="language" value="{{ lang.code }}"/>
+                                                <a href=# onclick="lang{{ lang.code }}.submit();" >{{ lang.name_local }} ({{ lang.code }})</a>
+                                                
+                                            </form>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            
+                            </li>
+                            
+                            
+                         
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main header END -->
+    </header>
+    <!-- header END -->
+    <!-- Content -->
+    
+    <div class="wrapper">
+        {% block content %}
+        {% endblock  %}
+    </div>
+
+
+    <!--/content -->
+    
+	 <footer class="site-footer">
+        <!-- newsletter part -->
+        <div class="p-a 30 bg-primary dlab-newsletter">
+            <div class="container equal-wraper">
+                <div class="row">
+                    <form action="# ">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="icon-bx-wraper equal-col p-t30 p-b20 left">
+                                <div class="icon-lg text-primary radius"> <a href="#" class="icon-cell"><i class="fa fa-envelope-o"></i></a> </div>
+                                <div class="icon-content"> <strong class="text-black text-uppercase font-18">{% trans 'Subscribe' %}</strong>
+                                    <h2 class="dlab-tilte text-uppercase">{% trans 'Our Newsletter'%}</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="input-group equal-col p-t40  p-b10">
+                                <input name="name" required placeholder="{% trans 'Email address'%} " class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-sm-offset-1">
+                            <div class="input-group equal-col  p-t40 p-b10 skew-subscribe">
+                                <button type="button" value="submit" name="submit" class="site-button-secondry button-skew z-index1"> <span>{% trans 'Subscribe'%}</span><i class="fa fa-angle-right"></i> </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- footer top part -->
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 footer-col-4">
+                        <div class="widget widget_about">
+                            <div class="logo-footer"><img src="{{ webSettings.logo.url }}" alt="{{ webSettings.website_name }}"></div>
+                            <p>{{ webSettings.small_description }}</p>
+                            <ul class="dlab-social-icon border">
+                                {% if webSettings.facebook %}<li><a class="fa fa-facebook" href="{{ webSettings.facebook }}" target="_blank"></a></li>{% endif %}
+                                {% if webSettings.twitter %}<li><a class="fa fa-twitter" href="{{ webSettings.twitter }}" target="_blank"></a></li>{% endif %}
+                                {% if webSettings.instagram %}<li><a class="fa fa-instagram" href="{{ webSettings.instagram }}" target="_blank"></a></li>{% endif %}
+                                {% if webSettings.linkedin %}<li><a class="fa fa-linkedin" href="{{ webSettings.linkedin }}" target="_blank"></a></li>{% endif %}
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 footer-col-4">
+                        <div class="widget recent-posts-entry">
+                            <h4 class="m-b15 text-uppercase">{% trans 'Recent Posts'%}</h4>
+                            <div class="dlab-separator-outer m-b10">
+                                <div class="dlab-separator bg-white style-skew"></div>
+                            </div>
+                            <div class="widget-post-bx">
+                               
+                               {% for artFooter in artFooter %}
+                               
+                                <div class="widget-post clearfix">
+                                    <div class="dlab-post-media"> <img src="{{ artFooter.pic_thumb.url }}" alt="{{ artFooter.slug }}" width="200" height="143"> </div>
+                                    <div class="dlab-post-info">
+                                        <div class="dlab-post-header">
+                                            <h6 class="post-title text-uppercase"><a href="{{ artFooter.slug }}">{{ artFooter.title|slice:"0:20" }}[...]</a></h6>
+                                        </div>
+                                        <div class="dlab-post-meta">
+                                            <ul>
+                                                <li class="post-author">{{ artFooter.dat.date }}</li>
+                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 footer-col-4">
+                        <div class="widget widget_services">
+                            <h4 class="m-b15 text-uppercase">{% trans 'Our Services'%}</h4>
+                            <div class="dlab-separator-outer m-b10">
+                                <div class="dlab-separator bg-white style-skew"></div>
+                            </div>
+                            <ul>
+                                {% for cat in categories_footer %}
+                                    <li><a href="/products_categories/{{ cat.slug }}">{{ cat.title }}</a></li>
+                                {% endfor %}
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 footer-col-4">
+                        <div class="widget widget_getintuch">
+                            <h4 class="m-b15 text-uppercase">{% trans 'Contact Us' %}</h4>
+                            <div class="dlab-separator-outer m-b10">
+                                <div class="dlab-separator bg-white style-skew"></div>
+                            </div>
+                            <ul>
+                                <li><i class="fa fa-map-marker"></i><strong>{% trans 'address' %}</strong>{{ webSettings.address }} </li>
+                                <li><i class="fa fa-phone"></i><strong>{% trans 'phone' %}</strong>{{ webSettings.phone_number_1 }}</li>
+                                <li><i class="fa fa-fax"></i><strong>{% trans 'FAX' %}</strong>{{ webSettings.phone_number_2 }}</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer bottom part -->
+        <div class="footer-bottom footer-line">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 text-left"> <span>{% trans 'MOLLER Germany © Copyright 2018'%}</span> </div>
+					<div class="col-md-4 text-center"> <span> {% trans 'Developed By'%} <a href="http://lebsiting.com" target="_blank" >LEBSITING</a> </span> </div>
+					<div class="col-md-4 text-right "> <a href="/about/"> {% trans 'About Us'%}</a> <a href="/contactus/"> {% trans 'Contact Us'%}</a> </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer END-->
+    <!-- scroll top button -->
+    <button class="scroltop fa fa-caret-up" ></button>
+</div>
+<!-- JavaScript  files ========================================= -->
+<script   src="{% static 'web/js/jquery.min.js' %}"></script>
+<!-- jquery.min js -->
+<script   src="{% static 'web/js/bootstrap.min.js' %}"></script>
+<!-- bootstrap.min js -->
+<script   src="{% static 'web/js/bootstrap-select.min.js' %}"></script>
+<!-- Form js -->
+<script   src="{% static 'web/js/jquery.bootstrap-touchspin.js' %}"></script>
+<!-- Form js -->
+<script   src="{% static 'web/js/magnific-popup.js' %}"></script>
+<!-- magnific-popup js -->
+<script   src="{% static 'web/js/waypoints-min.js' %}"></script>
+<!-- waypoints js -->
+<script   src="{% static 'web/js/counterup.min.js' %}"></script>
+<!-- counterup js -->
+<script  src="{% static 'web/js/imagesloaded.js' %}"></script>
+<!-- masonry  -->
+<script  src="{% static 'web/js/masonry-3.1.4.js' %}"></script>
+<!-- masonry  -->
+<script  src="{% static 'web/js/masonry.filter.js' %}"></script>
+<!-- masonry  -->
+<script   src="{% static 'web/js/owl.carousel.js' %}"></script>
+<!-- OWL  Slider  -->
+
+<!-- contact files-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_YEzHx_YCQvqQSB_xuSC18BT81BlKVvI&sensor=false"></script>
+<!-- google map  -->
+<script   src="{% static 'web/js/custom.js' %}"></script>
+<!-- custom fuctions  -->
+
+<script   src="{% static 'web/js/dz.ajax.js' %}"></script>
+<!-- contact-us js -->
+<!-- end contact files -->
+
+
+<!--
+<script   src="js/custom.js"></script>
+ custom fuctions  -->
+
+<script   src="{% static 'web/js/dz.carousel.js' %}"></script>
+<!-- sortcode fuctions  
+<script   src="{% static 'web/js/switcher.min.js' %}"></script>-->
+<!-- switcher fuctions  -->
+
+
+
+<!-- HOME PAGE JS FILES -->
+
+<!-- revolution JS FILES -->
+<script  src="{% static 'web/plugins/revolution/js/jquery.themepunch.tools.min.js' %}"></script>
+<script  src="{% static 'web/plugins/revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
+<!-- Slider revolution 5.0 Extensions  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+<script  src="{% static 'web/plugins/revolution/js/extensions/revolution.extension.actions.min.js' %}"></script>
+<script  src="{% static 'web/plugins/revolution/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+<script  src="{% static 'web/plugins/revolution/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+<script  src="{% static 'web/plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+<script  src="{% static 'web/plugins/revolution/js/extensions/revolution.extension.migration.min.js' %}"></script>
+<script  src="{% static 'web/plugins/revolution/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+<script  src="{% static 'web/plugins/revolution/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+<script  src="{% static 'web/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+<script  src="{% static 'web/plugins/revolution/js/extensions/revolution.extension.video.min.js' %}"></script>
+<script   src="{% static 'web/js/rev.slider.js' %}"></script>
+<script >
+jQuery(document).ready(function() {
+	'use strict';
+	dz_rev_slider_2();
+});	/*ready*/
+</script>
+<!-- eND HOME PAGE JS FILES -->
+</body>
+</html>

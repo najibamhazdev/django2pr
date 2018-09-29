@@ -1,0 +1,24 @@
+{% load static i18n %}
+<h1>title of test</h1>
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+<ul class="sub-menu">
+                                    {% for lang in languages %}
+                                        <li>
+                                            <form action="{% url 'set_language' %}" name="lang{{ lang.code }}" method="post">{% csrf_token %}
+                                                <input type="hidden" name="language" value="{{ lang.code }}"/>
+                                                <a href=# onclick="lang{{ lang.code }}.submit();" >{{ lang.name_local }} ({{ lang.code }})</a>
+                                                
+                                            </form>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+
+<ul>
+    {% for tes in tests %}
+        <li>{{ tes.title }}<br><p>{{ tes.text }}</p></li>
+    {% endfor %}
+
+</ul>

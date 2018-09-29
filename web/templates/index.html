@@ -1,0 +1,329 @@
+{% extends 'layout.html' %}
+
+{% load static i18n %}
+{% block content %}
+    
+    
+      <div class="page-content">
+        <!-- Slider -->
+        <div class="main-slider style-two default-banner">
+            <div class="tp-banner-container">
+                <div class="tp-banner" >
+                    <div id="rev_slider_1014_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="typewriter-effect" data-source="gallery">
+                        <!-- START REVOLUTION SLIDER 5.3.0.2 -->
+                        <div id="rev_slider_1014_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.3.0.2">
+                            <ul>
+                                <!-- SLIDE 1 -->
+                                
+                                {% for slide in sliders_list %}
+                                    
+                                <li data-index="rs-{{ slide.pk }}000" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="{{ slide.photo.url }}" data-rotate="0" data-saveperformance="off" data-title="{{ slide.title }}" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                                    <!-- MAIN IMAGE -->
+                                    <img src="{{ slide.photo.url }}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina/>
+                                    <!-- LAYERS -->
+                                    <!-- LAYER NR. 1 [ for overlay ] -->
+                                    <div class="tp-caption tp-shape tp-shapewrapper " 
+                id="slide-{{ slide.pk }}-layer-1" 
+                data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
+                data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
+                data-width="full"
+                data-height="full"
+                data-whitespace="nowrap"
+                data-type="shape" 
+                data-basealign="slide" 
+                data-responsive_offset="off" 
+                data-responsive="off"
+                data-frames='[{"from":"opacity:0;","speed":1000,"to":"o:1;","delay":0,"ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"to":"opacity:0;","ease":"Power4.easeOut"}]'
+                data-textAlign="['left','left','left','left']"
+                data-paddingtop="[0,0,0,0]"
+                data-paddingright="[0,0,0,0]"
+                data-paddingbottom="[0,0,0,0]"
+                data-paddingleft="[0,0,0,0]"
+                
+                style="z-index: 12;background-color:rgba(0, 0, 0, 0.50);border-color:rgba(0, 0, 0, 0);border-width:0px;"> </div>
+                                    <!-- LAYER NR. 2 [ for title ] -->
+				<div class="tp-caption  tp-resizeme" 
+				id="slide-{{ slide.pk }}-layer-2" 
+				data-x="['left','left','left','left']" data-hoffset="['30','30','30','30']" 
+				data-y="['top','top','top','top']" data-voffset="['150','150','150','150']" 
+				data-fontsize="['55','55','55','55']"
+				data-lineheight="['60','60','60','60']"
+				data-width="['800','800','800','800']"
+				data-height="['none','none','none','none']"
+				data-whitespace="['normal','normal','normal','normal']"
+
+				data-type="text" 
+				data-responsive_offset="on" 
+				data-frames='[{"from":"y:50px(R);opacity:0;","speed":1500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"to":"y:-50px;opacity:0;","ease":"Power2.easeInOut"}]'
+				data-textAlign="['left','left','left','left']"
+				data-paddingtop="[0,0,0,0]"
+				data-paddingright="[0,0,0,0]"
+				data-paddingbottom="[0,0,0,0]"
+				data-paddingleft="[0,0,0,0]"
+
+				style="z-index: 13; 
+				white-space: normal; 
+				font-size: 60px; 
+				line-height: 60px; 
+				font-weight: 700; 
+				color: rgba(255, 255, 255, 1.00);
+				border-width:0px;"> <span class="text-uppercase" style="font-family: Oswald;">{{ slide.title }}</span> </div>
+                                    <!-- LAYER NR. 3 [ for paragraph] -->
+                                    <div class="tp-caption tp-resizeme" 
+                id="slide-{{ slide.pk }}-layer-3" 
+                data-x="['left','left','left','left']" data-hoffset="['30','30','30','30']" 
+								data-y="['top','top','top','top']" data-voffset="['250','250','250','250']" 
+                data-fontsize="['20','20','20','35']"
+								data-lineheight="['30','30','30','40']"
+								data-width="['800','800','800','1000']"
+								data-height="['none','none','none','none']"
+                data-whitespace="['normal','normal','normal','normal']"
+           
+                data-type="text" 
+                data-responsive_offset="on"
+                data-frames='[
+                {"from":"y:50px(R);opacity:0;","speed":1500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},
+                {"delay":"wait","speed":1000,"to":"y:-50px;opacity:0;","ease":"Power2.easeInOut"}
+                ]'
+                data-textAlign="['left','left','left','left']"
+                data-paddingtop="[0,0,0,0]"
+                data-paddingright="[0,0,0,0]"
+                data-paddingbottom="[0,0,0,0]"
+                data-paddingleft="[0,0,0,0]"
+
+                style="z-index: 13; 
+                font-weight: 500; 
+                color: rgba(255, 255, 255, 0.85);
+                border-width:0px;"> <span>{{ slide.short_descr }} [...]</span> </div>
+                                    <!-- LAYER NR. 4 [ for readmore botton ] -->
+                                    <div class="tp-caption tp-resizeme" 	
+                id="slide-{{ slide.pk }}-layer-4"						
+                data-x="['left','left','left','left']" data-hoffset="['30','30','30','30']" 
+								data-y="['top','top','top','top']" data-voffset="['370','370','370','460']" 
+                data-fontsize="['none','none','none','none']"
+								data-lineheight="['none','none','none','none']"
+								data-width="['700','700','700','700']"
+								data-height="['none','none','none','none']"
+                data-whitespace="['normal','normal','normal','normal']"
+                
+                data-type="text" 
+                data-responsive_offset="on"
+                data-frames='[ 
+                {"from":"y:50px(R);opacity:0;","speed":1500,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},
+                {"delay":"wait","speed":1000,"to":"y:-50px;opacity:0;","ease":"Power2.easeInOut"}
+                ]'
+                data-textAlign="['left','left','left','left']"
+                data-paddingtop="[0,0,0,0]"
+                data-paddingright="[0,0,0,0]"
+                data-paddingbottom="[0,0,0,0]"
+                data-paddingleft="[0,0,0,0]"
+                
+                style="z-index: 13;">{% if slide.link %}<br><a href="{{ slide.link }}" class="site-button  button-skew"><span>{% trans 'Read More' %}</span><i class="fa fa-ang.le-right"></i></a>{% endif %} </div>
+                                </li>
+
+                                {% endfor %}
+                                
+                            </ul>
+                            <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
+                        </div>
+                    </div>
+                    <!-- END REVOLUTION SLIDER -->
+                </div>
+            </div>
+        </div>
+        <!-- Slider END -->
+        <!-- meet & ask -->
+        <div class="section-full z-index100 meet-ask-outer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 meet-ask-row p-tb30">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="icon-bx-wraper clearfix text-white left">
+                                    <div class="icon-xl "> <span class=" icon-cell"><i class="fa fa-building-o"></i></span> </div>
+                                    <div class="icon-content">
+                                        <h3 class="dlab-tilte text-uppercase m-b10">{% trans 'Meet & Ask MOLLER Germany' %}</h3>
+                                        <p>{% trans 'One of the leading suppliers of passenger spare parts, lubricants and oil equipment.' %}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 m-t20"> <a href="contactus" class="site-button-secondry button-skew m-l10"><span>{% trans 'Contact Us' %}</span><i class="fa fa-angle-right"></i></a> <a href="about" class="site-button-secondry button-skew m-l20"><span>{% trans 'View more'%}</span><i class="fa fa-angle-right"></i></a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- meet & ask END -->
+        
+        
+        
+        <!-- About Company -->
+        <div class="section-full  bg-gray content-inner-1" style="background-image: url({% static 'web/images/bg-img.png' %}); background-repeat: repeat-x; background-position: left bottom -37px;">
+            <div class="container">
+                <div class="section-content">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h2 class="text-uppercase"> {{ about.title }}</h2>
+                            <div class="dlab-separator-outer ">
+                                <div class="dlab-separator bg-secondry style-skew"></div>
+                            </div>
+                            <div class="clear"></div>
+                            <p>{{ about.short_descr }}<br></p>
+                            <div class="row">
+                               
+                                {% for icon in abouticons %}
+                                
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="icon-bx-wraper left m-b30">
+                                        <div class="icon-bx-sm bg-secondry "> <span class="icon-cell"><i class="fa {{ icon.icon }} text-primary"></i></span> </div>
+                                        <div class="icon-content">
+                                            <h3 class="dlab-tilte text-uppercase">{{ icon.title }}</h3>
+                                            <p>{{ icon.short_descr }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="dlab-thu m"><img src="{{  about.home_image.url }}" alt="{{ about.slug }}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About Company END -->
+        <!-- Our Projects  -->
+        <div class="section-full bg-img-fix content-inner overlay-black-middle" style="background-image:url({% static 'web/images/background/bg1.jpg' %});">
+            <div class="container">
+                <div class="section-head  text-center text-white">
+                    <h2 class="text-uppercase">{{ productsText.title }}</h2>
+                    <div class="dlab-separator-outer ">
+                        <div class="dlab-separator bg-white style-skew"></div>
+                    </div>
+                    <div>{{ productsText.short_descr }}</div>
+                </div>
+                <div class="site-filters clearfix center  m-b40">
+                    <ul class="filters" data-toggle="buttons">
+                        <li data-filter="" class="btn active">
+                            <input type="radio">
+                            <a href="#" class="site-button-secondry button-skew active"><span>{% trans 'Show All'%}</span></a> </li>
+                        {% for cat in categories %}
+                        <li data-filter="cat_{{ cat.title }}" class="btn">
+                            <input type="radio" >
+                            <a href="#" class="site-button-secondry button-skew"><span>{{ cat.title }}</span></a> </li>
+                        {% endfor %}
+                        
+                    </ul>
+                </div>
+                <div class="row">
+                    <ul id="masonry" class="dlab-gallery-listing gallery-grid-4 gallery mfp-gallery m-b0">
+                      {% for prod in products %}  
+                        
+                        <li data-filter="cat_{{ prod.category }}" class="card-container col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                            <div class="dlab-box dlab-gallery-box">
+                                <div class="dlab-media dlab-img-overlay1 dlab-img-effect zoom-slow"> <a href="javascript:void(0);"> <img src="{{ prod.image.url }}" category="{{ prod.category }}"  alt="{{ prod.title }}"> </a>
+                                    <div class="overlay-bx">
+                                        <div class="overlay-icon"> <a href="/products/{{ prod.slug }}"> <i class="fa fa-link icon-bx-xs"></i> </a> <a  href="{{ prod.image.url }}" class="mfp-link" category=" {{ prod.category }} "  title="{{ prod.title }}"> <i class="fa fa-picture-o icon-bx-xs"></i> </a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Our Projects END -->
+        
+        <!-- Company staus -->
+        <div class="section-full text-white bg-img-fix content-inner overlay-black-middle" style="background-image:url({% static 'web/images/background/bg4.jpg' %});">
+            <div class="container">
+                <div class="row">
+
+                {% for key in succ_keys %}
+                    <div class="col-md-3 col-sm-6">
+                        <div class="dex-box text-primary border-2 counter-box m-b30">
+                            <h2 class="text-uppercase m-a0 p-a15 "><i class="fa {{ key.icon }} m-r20"></i> <span class="counter">{{ key.counter }}</span></h2>
+                            <h5 class="dlab-tilte  text-uppercase m-a0"><span class="dlab-tilte-inner skew-title bg-primary p-lr15 p-tb10">{{ key.title }}</span></h5>
+                        </div>
+                    </div>
+                {% endfor %}
+                   
+                </div>
+            </div>
+        </div>
+        <!-- Company staus END -->
+        <!-- Team member -->
+        
+        <!-- Team member END -->
+        <!-- Latest blog -->
+        <div class="section-full content-inner ">
+            <div class="container">
+                <div class="section-head text-center">
+                    <h2 class="text-uppercase">{% trans 'Latest blog posts'%}</h2>
+                    <div class="dlab-separator-outer ">
+                        <div class="dlab-separator bg-secondry style-skew"></div>
+                    </div>
+                </div>
+                <div class="section-content ">
+                    <div class="row equal-wraper">
+
+                    {% for art in art %}
+
+                        <div class="col-md-4 col-sm-4 equal-col m-b10">
+                            <div class="blog-post latest-blog-1 date-style-3 skew-date">
+                                <div class="dlab-post-media dlab-img-effect zoom-slow"> <a href="javascript:;"><img src="{{ art.pic_thumb.url }}" alt="{{ art.slug }}"></a> </div>
+                                <div class="dlab-post-info p-t20">
+                                    <div class="dlab-post-title ">
+                                        <h3 class="post-title"><a href="javascript:;">{{ art.title|slice:"0:43" }}[...]</a></h3>
+                                    </div>
+                                    <div class="dlab-post-meta ">
+                                        <ul>
+                                            <li class="post-date"> <i class="fa fa-calendar"></i><strong> {{ art.dat.date }}</strong> <span> </span> </li>
+                                            <li class="post-author"><i class="fa fa-user"></i>{% trans 'By' %} <a href="javascript:;">{{ art.author }}</a> </li>
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="dlab-post-text">
+                                        <p>{{ art.short_descr }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Latest blog END -->
+        
+        <!-- Client logo -->
+        <div class="section-full dlab-we-find bg-img-fix p-t50 p-b50 ">
+            <div class="container">
+                <div class="section-content">
+                    <div class="client-logo-carousel mfp-gallery gallery owl-btn-center-lr">
+                    {% for partner in partners %}
+                        <div class="item">
+                            <div class="ow-client-logo">
+                                <div class="client-logo"><a {% if partner.link %} href="{{ partner.link }}" {% endif %} ><img src="{{ partner.image.url }}" title="{{ partner.title }}"  alt="{{ partner.title }}" ></a></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Client logo END -->
+    </div>
+    <!-- Content END-->
+    <!-- Footer -->
+
+{% endblock content %}

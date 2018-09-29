@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% block content %} 
+    
+    <div class="page-content">
+        <!-- inner page banner -->
+        <div class="dlab-bnr-inr overlay-black-middle" style="background-image:url({{ blogText.header_image.url }});">
+            <div class="container">
+                <div class="dlab-bnr-inr-entry">
+                    <h1 class="text-white">{{ blogText.title }}</h1>
+                    <h5 class="text-white">{{ blogText.short_descr }}</h5>
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- Breadcrumb row -->
+        <div class="breadcrumb-row">
+            <div class="container">
+                <ul class="list-inline">
+                    <li><a href="/">{% trans 'Home'%}</a></li>
+                    <li>{{ blogText.title }}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb row END -->
+        <div class="content-area">
+            <div class="container">
+                <!-- Blog half image -->
+                
+                {% for art in latest_blog_list %}
+                <div class="blog-post blog-md clearfix date-style-2">
+                    <div class="dlab-post-media dlab-img-effect zoom-slow"> <a href="/news_and_events/{{ art.slug }}"><img src="{{ art.pic_thumb.url }}" alt="{{ art.slug }}"></a> </div>
+                    <div class="dlab-post-info">
+                        <div class="dlab-post-title ">
+                            <h3 class="post-title"><a href="/news_and_events/{{ art.slug }}">{{ art.title }}</a></h3>
+                        </div>
+                        <div class="dlab-post-meta ">
+                            <ul>
+                                <li class="post-date"> <i class="fa fa-calendar"></i><strong>{{ art.dat.date }}</strong>  </li>
+                                <li class="post-author"><i class="fa fa-user"></i>{% trans 'By'%} <a href="#">{{ art.author }}</a> </li>
+                                
+                            </ul>
+                        </div>
+                        <div class="dlab-post-text">
+                            <p>{{ art.short_descr }}</p>
+                        </div>
+                        <div class="dlab-post-readmore"> <a href="{{ art.slug }}" title="READ MORE" rel="bookmark" class="site-button-link">{% trans 'READ MORE'%}<i class="fa fa-angle-double-right"></i></a> </div>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+
+                
+                <!-- Blog half image END -->
+                <!-- Pagination  
+                <div class="pagination-bx clearfix ">
+                    <ul class="pagination">
+                        <li class="previous"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                        <li class="active"><a href="#">1</a> </li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="next"><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                    </ul>
+                </div>-->
+                <!-- Pagination END -->
+            </div>
+        </div>
+    </div>
+    <!-- Content END-->
+   
+
+
+{% endblock %}    

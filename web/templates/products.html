@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+
+    <!-- Content -->
+    <div class="page-content">
+        <!-- inner page banner -->
+        <div class="dlab-bnr-inr overlay-black-middle" style="background-image:url({{ productsText.header_image.url }});">
+            <div class="container">
+                <div class="dlab-bnr-inr-entry">
+                    <h1 class="text-white">{{ productsText.title }}</h1>
+                    <h5 class="text-white">{{ productsText.short_descr }}</h5>
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- Breadcrumb row -->
+        <div class="breadcrumb-row">
+            <div class="container">
+                <ul class="list-inline">
+                    <li><a href="/">{% trans 'Home'%}</a></li>
+                    <li>{% trans 'Our Products'%}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb row END -->
+        <!-- contact area -->
+        <div class="content">
+            <!-- About Company -->
+            <!-- Our Projects  -->
+        <div class="section-full bg-img-fix content-inner overlay-black-middle" style="background-image:url({% static 'web/images/background/bg1.jpg' %});">
+            <div class="container">
+                <div class="section-head  text-center text-white">
+                    <h2 class="text-uppercase">{{ productsText.title }}</h2>
+                    <div class="dlab-separator-outer ">
+                        <div class="dlab-separator bg-white style-skew"></div>
+                    </div>
+                    <div>{{ productsText.short_descr }}</div>
+                </div>
+                <div class="site-filters clearfix center  m-b40">
+                    <ul class="filters" data-toggle="buttons">
+                        <li data-filter="" class="btn active">
+                            <input type="radio">
+                            <a href="#" class="site-button-secondry button-skew active"><span>{% trans 'Show All'%}</span></a> </li>
+                        {% for cat in categories %}
+                        <li data-filter="cat_{{ cat.title }}" class="btn">
+                            <input type="radio" >
+                            <a href="#" class="site-button-secondry button-skew"><span>{{ cat.title }}</span></a> </li>
+                        {% endfor %}
+                        
+                    </ul>
+                </div>
+                <div class="row">
+                    <ul id="masonry" class="dlab-gallery-listing gallery-grid-4 gallery mfp-gallery m-b0">
+                      {% for prod in products %}  
+                        
+                        <li data-filter="cat_{{ prod.category }}" class="card-container col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                            <div class="dlab-box dlab-gallery-box">
+                                <div class="dlab-media dlab-img-overlay1 dlab-img-effect zoom-slow"> <a href="javascript:void(0);"> <img src="{{ prod.image.url }}"  alt="{{ prod.title }}"> </a>
+                                    <div class="overlay-bx">
+                                        <div class="overlay-icon"> <a href="/products/{{ prod.slug }}"> <i class="fa fa-link icon-bx-xs"></i> </a> <a  href="{{ prod.image.url }}" class="mfp-link"  title="{{ prod.title }}" category=" {{ prod.category }} "> <i class="fa fa-picture-o icon-bx-xs"></i> </a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+            
+            
+        </div>
+        <!-- contact area END -->
+        <div class="section-full dlab-we-find bg-img-fix p-t50 p-b50 ">
+            <div class="container">
+            <br><br>
+                <div class="section-content">
+                    <div class="client-logo-carousel mfp-gallery gallery owl-btn-center-lr">
+                    {% for partner in partners %}
+                        <div class="item">
+                            <div class="ow-client-logo">
+                                <div class="client-logo"><a {% if partner.link %} href="{{ partner.link }}" {% endif %} ><img src="{{ partner.image.url }}" title="{{ partner.title }}" alt="{{ partner.title }}" ></a></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- Content END-->
+    <!-- Footer -->
+
+
+
+
+{% endblock content %}

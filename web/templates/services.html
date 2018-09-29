@@ -1,0 +1,105 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+
+    <!-- Content -->
+    <div class="page-content">
+        <!-- inner page banner -->
+        <div class="dlab-bnr-inr overlay-black-middle" style="background-image:url({{ about.header_image.url }});">
+            <div class="container">
+                <div class="dlab-bnr-inr-entry">
+                    <h1 class="text-white">{{ services.title }}</h1>
+                    <h5 class="text-white">{{ services.short_descr }}</h5>
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- Breadcrumb row -->
+        <div class="breadcrumb-row">
+            <div class="container">
+                <ul class="list-inline">
+                    <li><a href="/">{% trans 'Home'%}</a></li>
+                    <li>{% trans 'Our Services'%}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb row END -->
+        <!-- contact area -->
+        <div class="content">
+            <!-- About Company -->
+            <div class="section-full bg-gray content-inner" style="background-image: url(images/bg-img.png); background-repeat: repeat-x; background-position: left bottom -37px;">
+                <div class="container">
+                    <div class="section-content">
+                        <div class="row">
+                        <div class="col-md-7">
+                            <h2 class="text-uppercase"> {{ services.title }}</h2>
+                            <div class="dlab-separator-outer ">
+                                <div class="dlab-separator bg-secondry style-skew"></div>
+                            </div>
+                            <div class="clear"></div>
+                            <p>{{ services.body }}</p>
+                            <div class="row">
+                                {% for icon in abouticons %}
+                                
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="icon-bx-wraper left m-b30">
+                                        <div class="icon-bx-sm bg-secondry "> <span class="icon-cell"><i class="fa {{ icon.icon }} text-primary"></i></span> </div>
+                                        <div class="icon-content">
+                                            <h3 class="dlab-tilte text-uppercase">{{ icon.title }}</h3>
+                                            <p>{{ icon.short_descr }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                
+                    
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="dlab-thu m"><img src="{{ services.image.url }}" alt="{{ services.slug }}"></div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- About Company END -->
+            <!-- Counter -->
+            <div class="section-full bg-gray bg-img-fix content-inner overlay-black-middle" style="background-image:url(images/background/bg12.jpg);">
+                <div class="container">
+                    <div class="row">
+                    {% for key in succ_keys  %}
+
+                        <div class="col-md-3 col-sm-3">
+                            <div class="m-b30 text-white text-center">
+                                <div class="icon-bx-lg radius  border-2 m-b20">
+                                    <div class="icon-cell text-white"> <i class="fa {{ key.icon }}"></i> </div>
+                                </div>
+                              
+                                <div class="counter font-26 font-weight-800 text-primary m-b5">{{ key.counter }}</div>
+                                <div class="aon-separator bg-primary"></div>
+                                <p>{{ key.title }}</p>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- Counter End -->
+            <!-- Architecture -->
+            
+        </div>
+        <!-- contact area END -->
+    </div>
+    <!-- Content END-->
+    <!-- Footer -->
+
+
+
+
+{% endblock content %}
