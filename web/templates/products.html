@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="dlab-bnr-inr-entry">
                     <h1 class="text-white">{{ productsText.title }}</h1>
-                    <h5 class="text-white">{{ productsText.short_descr }}</h5>
+                    <h5 class="text-white">{{ productsText.short_descr | safe }}</h5>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                     <div class="dlab-separator-outer ">
                         <div class="dlab-separator bg-white style-skew"></div>
                     </div>
-                    <div>{{ productsText.short_descr }}</div>
+                    <div>{{ productsText.body | safe  }}</div>
                 </div>
                 <div class="site-filters clearfix center  m-b40">
                     <ul class="filters" data-toggle="buttons">

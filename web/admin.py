@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
 #from parler.admin import TranslatableAdmin
-from .models import Blog, BlogGallery, Sliders, TextPages, TextPagesIcons, ProductCategories, Products, Successkeys, Partners, WebSettings, TestModel
+from .models import Blog, BlogGallery, Sliders, TextPages, TextPagesIcons, ProductCategories, Products, Successkeys, Partners, WebSettings, TestModel, NewsletterUser
 
 
 
@@ -39,7 +39,8 @@ class SuccesskeysAdmin(TranslationAdmin):
 class WebSettingsAdmin(TranslationAdmin):
     pass
 
-
+class NewsletterAdmin(admin.ModelAdmin):
+    list_display = ('email','date_added',)
 
 
 
@@ -56,7 +57,7 @@ admin.site.site_header = 'Moller website CMS'
 
 
 
-    
+admin.site.register(NewsletterUser, NewsletterAdmin)    
 admin.site.register(TestModel, TestModelAdmin)
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(BlogGallery, BlogGalleryAdmin)

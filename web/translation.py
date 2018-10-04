@@ -29,7 +29,7 @@ class SuccesskeysTrans(TranslationOptions):
     fields = ('title', )
 
 class WebSettingsTrans(TranslationOptions):
-    fields = ('website_name', 'small_description','address')
+    fields = ('website_name', 'small_description','address','address_2')
 
 
 translator.register(WebSettings, WebSettingsTrans)

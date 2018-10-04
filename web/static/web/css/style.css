@@ -8750,6 +8750,11 @@ ol.commentlist li .star-rating {
     display: none;
 }
 
+.icon-content h3{
+
+    margin-bottom: 5px;
+}
+
 
 
 

@@ -162,8 +162,10 @@
         <!-- newsletter part -->
         <div class="p-a 30 bg-primary dlab-newsletter">
             <div class="container equal-wraper">
+
+            
                 <div class="row">
-                    <form action="# ">
+                    <form action="/newslettersignup/" method="post"> {% csrf_token %}
                         <div class="col-md-4 col-sm-4">
                             <div class="icon-bx-wraper equal-col p-t30 p-b20 left">
                                 <div class="icon-lg text-primary radius"> <a href="#" class="icon-cell"><i class="fa fa-envelope-o"></i></a> </div>
@@ -174,12 +176,12 @@
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <div class="input-group equal-col p-t40  p-b10">
-                                <input name="name" required placeholder="{% trans 'Email address'%} " class="form-control" type="text">
+                                <input name="email" required placeholder="{% trans 'Email address'%} " class="form-control" type="text">
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-3 col-sm-offset-1">
                             <div class="input-group equal-col  p-t40 p-b10 skew-subscribe">
-                                <button type="button" value="submit" name="submit" class="site-button-secondry button-skew z-index1"> <span>{% trans 'Subscribe'%}</span><i class="fa fa-angle-right"></i> </button>
+                                <button type="submit" value="submit" name="submit" class="site-button-secondry button-skew z-index1"> <span>{% trans 'Subscribe'%}</span><i class="fa fa-angle-right"></i> </button>
                             </div>
                         </div>
                     </form>

@@ -10,7 +10,7 @@
             <div class="container">
                 <div class="dlab-bnr-inr-entry">
                     <h1 class="text-white">{{ product.title }}</h1>
-                    <h5 class="text-white">{{ product.short_descr }}</h5>
+                    <h5 class="text-white">{{ product.short_descr | safe }}</h5>
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="dlab-post-media dlab-img-effect zoom-slow"> <a href="#"><img src="{{ product.image.url }}" alt="{{ product.slug }}"></a> </div>
                             <div class="dlab-post-text">
-                                <p>{{ product.body }}</p>
+                                <p>{{ product.body | safe }}</p>
                             </div>
                             <div class="dlab-post-tags clear">
                             

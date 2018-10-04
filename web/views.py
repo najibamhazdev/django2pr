@@ -1,26 +1,16 @@
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-#from django.utils.translation import ugettext as _
 from django.shortcuts import get_object_or_404, render
 from django.template import loader
-
+from django.contrib import messages
 from django.urls import reverse
 from django.views import generic 
 from django.utils import timezone
 from random import sample
+from .forms import NewsletterUserSignUpForm 
 
+from django.views.generic import View, FormView 
 
-
-from .models import Blog, BlogGallery, Sliders, TextPages, TextPagesIcons, Products, ProductCategories, Successkeys, Partners, WebSettings, TestModel
-#
-#from django.shortcuts import render
-
-# Create your views here.
-
-
-
-
-
-
+from .models import Blog, BlogGallery, Sliders, TextPages, TextPagesIcons, Products, ProductCategories, Successkeys, Partners, WebSettings, TestModel, NewsletterUser
 
 
 def blog_detail(request, slug):
@@ -123,3 +113,46 @@ def service_detail(request, service_id):
 def test_page(request):
     tests = TestModel.objects.order_by('?')
     return render(request, "test.html", {'tests':tests})
+
+def newsletter_signup(request):
+    form = NewsletterUserSignUpForm(request.POST or None)
+    about = TextPages.objects.get(pk=1)
+    succ_keys = Successkeys.objects.order_by('?')[:4]
+
+    if form.is_valid():
+        instance = form.save(commit=False)
+        if NewsletterUser.objects.filter(email=instance.email).exists():
+            messages.warning(request,'Your Email Already exist in our Database')
+        else:
+            instance.save()
+            messages.success(request, 'Your Email has been Submited to the database')
+    else:
+        messages.warning(request,'Please, provide a valid email')
+
+    context = {
+        'form':form, 'about':about,  'succ_keys':succ_keys,
+    }
+    template = "newsletter_signup.html"
+    return render(request, template, context)
+
+def newsletter_unsubscribe(request):
+    form = NewsletterUserSignUpForm(request.POST or None)
+
+    if form.is_valid():
+        instance = form.save(commit=False)
+        if NewsletterUser.objects.filter(email=instance.email).exists():
+            NewsletterUser.objects.filter(email=instance.email).delete()
+            messages.success(request, 
+            'Your Email has been removed from our databases',
+            'alert alert-success alert-dismissible')
+        else:
+            messages.warning(request, 
+            'Your Email does not exist in our Database', 
+            'alert alert-warning alert-dismissible')
+
+    context={
+        "form":form,
+    }
+    template = "index.html"
+
+    return render(request, template, context)    

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +146,10 @@ MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'de')
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'web/media')
 MEDIA_URL = '/media/'
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+###productions
+#STATIC_URL = '/static/'
+#STATIC_ROOT = '/home/mollergermany/django2pr/static/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'web/media')
+#MEDIA_URL = '/media/'

@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="dlab-bnr-inr-entry">
                     <h1 class="text-white">{{ blogText.title }}</h1>
-                    <h5 class="text-white">{{ blogText.short_descr }}</h5>
+                    <h5 class="text-white">{{ blogText.short_descr | safe  }}</h5>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                             </ul>
                         </div>
                         <div class="dlab-post-text">
-                            <p>{{ art.short_descr }}</p>
+                            <p>{{ art.short_descr | safe }}</p>
                         </div>
                         <div class="dlab-post-readmore"> <a href="{{ art.slug }}" title="READ MORE" rel="bookmark" class="site-button-link">{% trans 'READ MORE'%}<i class="fa fa-angle-double-right"></i></a> </div>
                         

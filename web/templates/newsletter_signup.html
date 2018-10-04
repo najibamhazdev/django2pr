@@ -11,8 +11,8 @@
         <div class="dlab-bnr-inr overlay-black-middle" style="background-image:url({{ about.header_image.url }});">
             <div class="container">
                 <div class="dlab-bnr-inr-entry">
-                    <h1 class="text-white">{{ about.title }}</h1>
-                    <h5 class="text-white">{{ about.short_descr }}</h5>
+                    <h1 class="text-white">{% trans 'Newsletter' %}</h1>
+                    <h5 class="text-white">{% trans 'Welcome to our Newsletter, Pleae Stay tuned' %}</h5>
                 </div>
             </div>
         </div>
@@ -21,8 +21,8 @@
         <div class="breadcrumb-row">
             <div class="container">
                 <ul class="list-inline">
-                    <li><a href="/">{% trans 'Home' %}</a></li>
-                    <li>{% trans 'About Us' %}</li>
+                    <li><a href="/"> {% trans 'Home' %}</a></li>
+                    <li>{% trans 'Newsletter' %}</li>
                 </ul>
             </div>
         </div>
@@ -35,32 +35,23 @@
                     <div class="section-content">
                         <div class="row">
                         <div class="col-md-7">
-                            <h2 class="text-uppercase"> {{ about.title }}</h2>
+                            <h2 class="text-uppercase"> {% trans 'Newsletter Subscription' %}</h2>
                             <div class="dlab-separator-outer ">
                                 <div class="dlab-separator bg-secondry style-skew"></div>
                             </div>
                             <div class="clear"></div>
-                            <p>{{ about.body | safe }}</p>
-                            <div class="row">
-                                {% for icon in abouticons %}
-                                
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="icon-bx-wraper left m-b30">
-                                        <div class="icon-bx-sm bg-secondry "> <span class="icon-cell"><i class="fa {{ icon.icon }} text-primary"></i></span> </div>
-                                        <div class="icon-content">
-                                            <h3 class="dlab-tilte text-uppercase">{{ icon.title }}</h3>
-                                            <p>{{ icon.short_descr | safe }}</p>
-                                        </div>
-                                    </div>
-                                </div>
+                            {% if messages %}
+                                {% for message in messages %}
+                                <h2>{{ message}}</h2>
                                 {% endfor %}
+                            {% endif %}
+                            <br><br>
+                            <br><br>
                                 
                     
                             </div>
                         </div>
-                        <div class="col-md-5">
-                            <div class="dlab-thu m"><img src="{{ about.image.url }}" alt="{{ about.slug }}"></div>
-                        </div>
+                        
                     </div>
                     </div>
                 </div>

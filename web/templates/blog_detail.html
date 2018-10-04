@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="dlab-bnr-inr-entry">
                     <h1 class="text-white">{{ art.title }}</h1>
-                    <h5 class="text-white">{{ art.short_descr }}</h5>
+                    <h5 class="text-white">{{ art.short_descr | safe }}</h5>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                     </div>
                     <!--<div class="dlab-post-media dlab-img-effect zoom-slow"> <a href="#"><img src="{{ art.pic_thumb.url }}" alt="{{ art.slug }}"></a> </div>-->
                     <div class="dlab-post-text">
-                        <p>{{ art.description }}</p>
+                        <p>{{ art.description | safe }}</p>
                         <h3>{% trans 'Gallery'%}:</h3>
                         <div class="dlab-post-tags clear">
                                 
@@ -56,7 +56,7 @@
 									<div class="p-lr20">
 										<h4 class="m-a0 bg-primary service-head"><a  class="text-white">{{ img.gallery_title }}</a></h4>
 									</div>	
-									<p class="m-b0">{{ img.short_descr }}</p>
+									<p class="m-b0">{{ img.short_descr | safe}}</p>
 								</div>
 							</div>
 						</div>

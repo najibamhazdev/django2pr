@@ -94,7 +94,7 @@
                 style="z-index: 13; 
                 font-weight: 500; 
                 color: rgba(255, 255, 255, 0.85);
-                border-width:0px;"> <span>{{ slide.short_descr }} [...]</span> </div>
+                border-width:0px;"> <span>{{ slide.short_descr | safe }} [...]</span> </div>
                                     <!-- LAYER NR. 4 [ for readmore botton ] -->
                                     <div class="tp-caption tp-resizeme" 	
                 id="slide-{{ slide.pk }}-layer-4"						
@@ -168,7 +168,7 @@
                                 <div class="dlab-separator bg-secondry style-skew"></div>
                             </div>
                             <div class="clear"></div>
-                            <p>{{ about.short_descr }}<br></p>
+                            <p>{{ about.short_descr | safe }}<br></p>
                             <div class="row">
                                
                                 {% for icon in abouticons %}
@@ -178,7 +178,7 @@
                                         <div class="icon-bx-sm bg-secondry "> <span class="icon-cell"><i class="fa {{ icon.icon }} text-primary"></i></span> </div>
                                         <div class="icon-content">
                                             <h3 class="dlab-tilte text-uppercase">{{ icon.title }}</h3>
-                                            <p>{{ icon.short_descr }}</p>
+                                            <p>{{ icon.short_descr | safe }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -203,7 +203,7 @@
                     <div class="dlab-separator-outer ">
                         <div class="dlab-separator bg-white style-skew"></div>
                     </div>
-                    <div>{{ productsText.short_descr }}</div>
+                    <div>{{ productsText.short_descr | safe }}</div>
                 </div>
                 <div class="site-filters clearfix center  m-b40">
                     <ul class="filters" data-toggle="buttons">
@@ -290,7 +290,7 @@
                                         </ul>
                                     </div>
                                     <div class="dlab-post-text">
-                                        <p>{{ art.short_descr }}</p>
+                                        <p>{{ art.short_descr | safe}}</p>
                                     </div>
                                 </div>
                             </div>

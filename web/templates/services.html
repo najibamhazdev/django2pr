@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="dlab-bnr-inr-entry">
                     <h1 class="text-white">{{ services.title }}</h1>
-                    <h5 class="text-white">{{ services.short_descr }}</h5>
+                    <h5 class="text-white">{{ services.short_descr | safe  }}</h5>
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
                                 <div class="dlab-separator bg-secondry style-skew"></div>
                             </div>
                             <div class="clear"></div>
-                            <p>{{ services.body }}</p>
+                            <p>{{ services.body | safe  }}</p>
                             <div class="row">
                                 {% for icon in abouticons %}
                                 
@@ -49,7 +49,7 @@
                                         <div class="icon-bx-sm bg-secondry "> <span class="icon-cell"><i class="fa {{ icon.icon }} text-primary"></i></span> </div>
                                         <div class="icon-content">
                                             <h3 class="dlab-tilte text-uppercase">{{ icon.title }}</h3>
-                                            <p>{{ icon.short_descr }}</p>
+                                            <p>{{ icon.short_descr | safe }}</p>
                                         </div>
                                     </div>
                                 </div>
